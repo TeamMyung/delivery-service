@@ -2,14 +2,14 @@ package com.sparta.deliveryservice.controller;
 
 import com.sparta.deliveryservice.dto.request.CreateDeliveryReqDto;
 import com.sparta.deliveryservice.dto.response.CreateDeliveryResDto;
+import com.sparta.deliveryservice.dto.response.GetDeliveryResDto;
 import com.sparta.deliveryservice.service.DeliveryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,5 +21,10 @@ public class DeliveryController {
     @PostMapping
     public ResponseEntity<CreateDeliveryResDto> createDelivery(@Valid @RequestBody CreateDeliveryReqDto requestDto) {
         return ResponseEntity.ok(deliveryService.createDelivery(requestDto));
+    }
+
+    @GetMapping("/{deliveryId}")
+    public ResponseEntity<GetDeliveryResDto> getDelivery(@PathVariable UUID deliveryId) {
+        return ResponseEntity.ok(deliveryService.getDelivery(deliveryId));
     }
 }
