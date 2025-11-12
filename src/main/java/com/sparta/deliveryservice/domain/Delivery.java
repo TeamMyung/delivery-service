@@ -24,7 +24,11 @@ public class Delivery extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private DeliveryStatus status;
+    private DeliveryStatus deliveryStatus;
+
+    public void updateDeliveryStatus(DeliveryStatus deliveryStatus) {
+        this.deliveryStatus = deliveryStatus;
+    }
 
     @Column(nullable = false)
     private UUID startHubId;

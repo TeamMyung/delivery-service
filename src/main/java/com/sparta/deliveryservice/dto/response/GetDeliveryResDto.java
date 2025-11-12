@@ -5,10 +5,12 @@ import com.sparta.deliveryservice.domain.DeliveryStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
 @Getter
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class GetDeliveryResDto {
@@ -28,7 +30,7 @@ public class GetDeliveryResDto {
         return GetDeliveryResDto.builder()
                 .deliveryId(delivery.getDeliveryId())
                 .orderId(delivery.getOrderId())
-                .status(delivery.getStatus())
+                .status(delivery.getDeliveryStatus())
                 .startHubId(delivery.getStartHubId())
                 .endHubId(delivery.getEndHubId())
                 .address(delivery.getAddress())

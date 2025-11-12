@@ -29,6 +29,13 @@ public class BaseEntity {
     @LastModifiedBy
     private Long updatedBy;
 
+    private Boolean isDeleted = false;
     private LocalDateTime deletedAt;
     private Long deletedBy;
+
+    public void deleted() {
+        isDeleted = true;
+        deletedAt = LocalDateTime.now();
+        // 삭제한 사람 추가
+    }
 }

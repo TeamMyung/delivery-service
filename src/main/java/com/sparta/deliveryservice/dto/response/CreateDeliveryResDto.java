@@ -28,7 +28,7 @@ public class CreateDeliveryResDto {
         return CreateDeliveryResDto.builder()
                 .deliveryId(delivery.getDeliveryId())
                 .orderId(delivery.getOrderId())
-                .status(delivery.getStatus())
+                .status(delivery.getDeliveryStatus())
                 .startHubId(delivery.getStartHubId())
                 .endHubId(delivery.getEndHubId())
                 .address(delivery.getAddress())
