@@ -1,0 +1,11 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: ds-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: postgres
+    ports:
+      - 5440:5432
